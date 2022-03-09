@@ -1,39 +1,55 @@
-# node-js-getting-started
+Compatify
+========
 
-A barebones Node.js app using [Express 4](http://expressjs.com/).
+![Screenshot](/home.jpg "Home Screen")
 
-This application supports the [Getting Started on Heroku with Node.js](https://devcenter.heroku.com/articles/getting-started-with-nodejs) article - check it out.
+*Test your music compatibility with your friends and significant others!*
 
-## Running Locally
+Live Website: https://compatify.herokuapp.com/
 
-Make sure you have [Node.js](http://nodejs.org/) and the [Heroku CLI](https://cli.heroku.com/) installed.
+Inspiration
+-----------
 
-```sh
-$ git clone https://github.com/heroku/node-js-getting-started.git # or clone your own fork
-$ cd node-js-getting-started
-$ npm install
-$ npm start
-```
+Music is a window to the soul. We wanted to peek into the hearts of our friends
+to test their musical compatibilities with us.
 
-Your app should now be running on [localhost:5000](http://localhost:5000/).
+Description
+-----------
 
-## Deploying to Heroku
+Compatify was a project we completed over 12 hours at the 5C Hackathon 
+(Spring 2016) at Pomona College. The app looks at Spotify users' saved music and
+determines the similarity in their tastes in music. When two users use Compatify,
+it also creates a playlist of songs that both of the users enjoy.
 
-```
-$ heroku create
-$ git push heroku main
-$ heroku open
-```
-or
+In 2018, an update was added so that different tracks that corresponded to the 
+same version of the same song would be recognized as identical. (i.e. the deluxe 
+album track and the normal album track are still considred the same song. 
+Different versions of the same song are still considered distinct.
 
-[![Deploy to Heroku](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy)
+Songs are considered the same if they are of the same length, have the same 
+artists and have the same title.
 
-## Documentation
+How We Built It
+---------------
 
-For more information about using Node.js on Heroku, see these Dev Center articles:
+We used Python, Flask, and Spotipy to develop our backend, and HTML/CSS, Bootstrap, Javascript, and D3.js to develop our frontend.
 
-- [Getting Started on Heroku with Node.js](https://devcenter.heroku.com/articles/getting-started-with-nodejs)
-- [Heroku Node.js Support](https://devcenter.heroku.com/articles/nodejs-support)
-- [Node.js on Heroku](https://devcenter.heroku.com/categories/nodejs)
-- [Best Practices for Node.js Development](https://devcenter.heroku.com/articles/node-best-practices)
-- [Using WebSockets on Heroku with Node.js](https://devcenter.heroku.com/articles/node-websockets)
+Roles
+-----
+
+Frontend & Design: Catherine Ma, Celia Zhang
+
+Backend & Spotify API: Joon Hee Lee
+
+Logic & Algorithms: Joseph Donermeyer
+
+Local Use
+-----------
+To install requirements, run
+pip install -r requirements.txt
+
+Then, from the app folder, run
+python3 app.py
+
+For local use, the production variable in app.py needs to be set to False. The service will run
+on port 8888
