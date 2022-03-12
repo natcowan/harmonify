@@ -86,8 +86,8 @@ class State(object):
 
     def _createOAuthObjects(self):
         SCOPE = 'user-library-read playlist-read-private playlist-read-collaborative playlist-modify-public playlist-modify-private'
-        SPOTIPY_CLIENT_ID = '883896384d0c4d158bab154c01de29db'
-        SPOTIPY_CLIENT_SECRET = '37443ee0c0404c44b755f3ed97c48493'
+        SPOTIPY_CLIENT_ID = 'e195d63520704332a896a4ef1f4251f4'
+        SPOTIPY_CLIENT_SECRET = '0e89f1053f424a969c3f44a76f907eea'
         if self.inProductionMode():
             SPOTIPY_REDIRECT_URI1 = 'https://compatify.herokuapp.com/callback1'
             SPOTIPY_REDIRECT_URI2 = 'https://compatify.herokuapp.com/callback2'
