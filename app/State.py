@@ -89,8 +89,8 @@ class State(object):
         SPOTIPY_CLIENT_ID = 'e195d63520704332a896a4ef1f4251f4'
         SPOTIPY_CLIENT_SECRET = '0e89f1053f424a969c3f44a76f907eea'
         if self.inProductionMode():
-            SPOTIPY_REDIRECT_URI1 = 'https://compatify.herokuapp.com/callback1'
-            SPOTIPY_REDIRECT_URI2 = 'https://compatify.herokuapp.com/callback2'
+            SPOTIPY_REDIRECT_URI1 = 'https://match-ify.herokuapp.com/callback1'
+            SPOTIPY_REDIRECT_URI2 = 'https://match-ify.herokuapp.com/callback2'
         else:
             SPOTIPY_REDIRECT_URI1 = 'http://localhost:8888/callback1'
             SPOTIPY_REDIRECT_URI2 = 'http://localhost:8888/callback2'
