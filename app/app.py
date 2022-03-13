@@ -33,7 +33,7 @@ Data is stored as a tuple, with the first element being the state and the second
 the date the state was created. '''
 STATES = {}
 PRODUCTION = True if 'PRODUCTION' in os.environ and os.environ['PRODUCTION'].lower() == 'true' else False
-#PRODUCTION = False
+PRODUCTION = True
 
 if PRODUCTION:
     # Set flask logs to "warning level only in production builds"
@@ -42,6 +42,7 @@ if PRODUCTION:
     app.logger.setLevel(logging.WARNING)
 
 # list of the tracks and playlists for each user where the key is the integer user id
+
 
 @contextmanager
 def suppress_stdout():
