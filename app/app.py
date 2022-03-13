@@ -33,6 +33,7 @@ Data is stored as a tuple, with the first element being the state and the second
 the date the state was created. '''
 STATES = {}
 PRODUCTION = True if 'PRODUCTION' in os.environ and os.environ['PRODUCTION'].lower() == 'true' else False
+#PRODUCTION = False
 
 if PRODUCTION:
     # Set flask logs to "warning level only in production builds"
@@ -73,9 +74,11 @@ def index(view=''):
         STATE.clean()
     sp_oauth1 = STATE.getOAuthObjects(1)
     auth_url1 = sp_oauth1.get_authorize_url()
-    message = "How compatible are your music tastes?"
+
+    
+    message = "compare music tastes to assess compatibility"
     if view and view.lower() == 'match':
-        message = "How compatible are our music tastes?"
+        message = "compare music tastes to assess compatibility"
         STATE.enableMatchMode()
     elif (view != "favicon.ico"):
         STATE.disableMatchMode()
