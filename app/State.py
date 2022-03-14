@@ -85,7 +85,7 @@ class State(object):
         self._userInfoObjects[int(user) - 1] = info
 
     def _createOAuthObjects(self):
-        SCOPE = 'user-library-read playlist-read-private playlist-read-collaborative playlist-modify-public playlist-modify-private'
+        SCOPE = 'user-top-read user-library-read playlist-read-private playlist-read-collaborative playlist-modify-public playlist-modify-private'
         SPOTIPY_CLIENT_ID = 'e195d63520704332a896a4ef1f4251f4'
         SPOTIPY_CLIENT_SECRET = '0e89f1053f424a969c3f44a76f907eea'
         if self.inProductionMode():

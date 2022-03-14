@@ -136,9 +136,9 @@ def options():
     if not STATE.inMatchMode():
         sp2 = getSpotifyClient(2)
         STATE.saveUserInfo(2, sp2.me())
-        message = u"Compatify attempt for users %s and %s" % (STATE.getUserInfoObjects(1)["display_name"], STATE.getUserInfoObjects(2)["display_name"])
+        message = u"Matchify attempt for users %s and %s" % (STATE.getUserInfoObjects(1)["display_name"], STATE.getUserInfoObjects(2)["display_name"])
     else:
-        message = u"Compatify match from user %s!" % STATE.getUserInfoObjects(1)["display_name"]
+        message = u"Matchify match from user %s!" % STATE.getUserInfoObjects(1)["display_name"]
         STATE.saveUserInfo(2, STATE.getUserInfoObjects(1))
 
     log.info (message)
@@ -342,7 +342,10 @@ def comparison():
     tracks1 = tracks_dict[1]
     tracks2 = tracks_dict[2]
     sp1, sp2 = getSpotifyClient(1), getSpotifyClient(2)
-    message = u"Compatify success for users %s and %s" % (STATE.getUserInfoObjects(1)["display_name"], STATE.getUserInfoObjects(2)["display_name"])
+    message = u"Matchify success for users %s and %s" % (STATE.getUserInfoObjects(1)["display_name"], STATE.getUserInfoObjects(2)["display_name"])
+
+    top_played_user1 = sp1.current_user_top_tracks(limit=5,offset=0,time_range='medium_term')
+    top_played_user2 = sp2.current_user_top_tracks(limit=5,offset=0,time_range='medium_term')
 
     log.info(message)
     if (STATE.inMatchMode() and STATE.inProductionMode()):
@@ -361,7 +364,7 @@ def comparison():
         score = algs.compatabilityIndex(tracks1, tracks2, intersection_songs)
 
         top5artists = algs.topNArtists(intersection_songs, 5)
-
+        
         intersection_playlist_names = algs.getInformation(intersection_songs, 'name')
 
         # filter out local tracks before making the shared playlist since they
@@ -379,6 +382,8 @@ def comparison():
 
     return render_template("last.html", score=int(score),
                             count=intersection_size, artists=top5artists,
+                            songs_user1=top_played_user1,
+                            songs_user2=top_played_user2,
                             success_page=url_for('success'),
                             match=STATE.inMatchMode())
 
@@ -414,7 +419,7 @@ def success():
     if user_name2 == None:
         user_name2 = user_id2
 
-    playlist_name = 'Compatify ' + user_name1
+    playlist_name = 'Matchify ' + user_name1
     if (not STATE.inMatchMode()):
         playlist_name += ' ' + user_name2
 
@@ -611,9 +616,9 @@ def clearOldStates():
 
 def sendMatchNotifications(name, url=None):
     if url:
-        MSG = "New Compatify match playlist created by user %s at %s !" % (name, url)
+        MSG = "New Matchify match playlist created by user %s at %s !" % (name, url)
     else:
-        MSG = "Compatify match completed by user %s" % name
+        MSG = "Matchify match completed by user %s" % name
     sendMatchEmail(MSG)
     sendMatchText(MSG)
 
@@ -638,9 +643,9 @@ def sendMatchEmail(MSG):
         return requests.post(
             MAIL_GUN_URL,
             auth=("api", MAIL_GUN_KEY),
-            data={"from": ("Compatify <mailgun@%s>" % MAIL_GUN_DOMAIN),
+            data={"from": ("Matchify <mailgun@%s>" % MAIL_GUN_DOMAIN),
                 "to": [MATCH_EMAIL],
-                "subject": "New Compatify Match!",
+                "subject": "New Matchify Match!",
                 "text": MSG})
 
 if __name__ == '__main__':

@@ -5,8 +5,9 @@
         <title>Matchify Results</title>
         
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
-        <link href='https://fonts.googleapis.com/css2?family=Tenor+Sans&display=swap' rel='stylesheet' type='text/css'>
-        
+        <link href="https://fonts.googleapis.com/css2?family=Italiana&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Italiana&family=Montserrat:wght@100&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Sacramento&display=swap" rel="stylesheet">
         <script src="https://d3js.org/d3.v3.min.js" language="JavaScript"></script>
 
 
@@ -28,7 +29,7 @@
             var songsMatched = {{count}} + " songs matched";
                 
             var config1 = liquidFillGaugeDefaultSettings();
-            config1.circleColor = "#000099";
+            config1.circleColor = "#8B0000";
             config1.textColor = "#000099";
             config1.waveTextColor = "#FFAAAA";
             config1.waveColor = "#FFDDDD";
@@ -48,14 +49,31 @@
             var topArtists = ["Joe", "Cathy", "Joon", "Celia", "Advith"]
         </script>
         
-        <h2 class="caption text-center">Top Five Shared Artists (Songs in Common)</h2>
+        <h2 class="caption text-center">Top Five Shared Artists</h2>
         
         <div class="artistsDiv">
             {% for artist in artists %}
                 <p class="artist text-center">{{artist[0]}} ({{artist[1]}})</p>
             {% endfor %}
         </div>
+        <br>
+
+        <h3 class="caption text-center">Top Played Songs for Natalie.Cowan</h3>
+        <div class="songDiv">
+            {% for song in songs_user1["items"] %}
+                <p class="artist text-center">{{song["name"]}}</p>
+            {% endfor %}
+        </div>
         
+<br>
+        <h4 class="caption text-center">Top Played Songs for Natalie.Cowan</h4>
+
+            <div class="songDiv2">
+                {% for song in songs_user2["items"] %}
+                    <p class="artist text-center">{{song["name"]}}</p>
+                {% endfor %}
+            </div>
+
          <br>
          <br>
          <form><div class="text-center"><a href={{ success_page }} class="btn btn-success matchify_btn"><div class="button_text">Make Playlist of Shared Songs</div> </a></div></form>

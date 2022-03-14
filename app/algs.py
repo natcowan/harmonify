@@ -2,7 +2,7 @@ import random, math
 
 
 
-''' Logic for compatify. 5c spring hackathon. 4 /16/2016. coded by Joe Donermeyer
+''' Logic for matchify. 5c spring hackathon. 4 /16/2016. coded by Joe Donermeyer
 on the team of Joon Hee Lee, Catherine Ma, and Celia Zhang.
 
     Updated on 9/11/2018 to not count different versions of the same song as 
