@@ -32,7 +32,7 @@ MATCH_PLAYLIST_ID = '10eJ5YNR0xdDUUgZkx48MP'
 Data is stored as a tuple, with the first element being the state and the second
 the date the state was created. '''
 STATES = {}
-PRODUCTION = False
+PRODUCTION = True
 
 if PRODUCTION:
     # Set flask logs to "warning level only in production builds"
