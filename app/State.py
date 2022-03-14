@@ -97,4 +97,5 @@ class State(object):
 
         sp_oauth1 = oauth2.SpotifyOAuth( SPOTIPY_CLIENT_ID, SPOTIPY_CLIENT_SECRET,SPOTIPY_REDIRECT_URI1,state=self.getOAuthKeys(1),scope=SCOPE,cache_path=State.CACHE1, show_dialog=True)
         sp_oauth2 = oauth2.SpotifyOAuth( SPOTIPY_CLIENT_ID, SPOTIPY_CLIENT_SECRET,SPOTIPY_REDIRECT_URI2,state=self.getOAuthKeys(2),scope=SCOPE,cache_path=State.CACHE2, show_dialog=True)
+
         return sp_oauth1, sp_oauth2

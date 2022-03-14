@@ -7,7 +7,7 @@
 }
 .caption {
     color: white;
-    font-family: "Lato", sans-serif;
+    font-family: 'Tenor Sans', sans-serif;
     font-size: 24px;
 }
 
@@ -19,7 +19,7 @@
 }
 
 select {
-	font-family: "Lato", sans-serif;
+    font-family: 'Tenor Sans', sans-serif;
     font-size: 16px;
     color: white;
     background-color: #5cb85c;

@@ -32,8 +32,7 @@ MATCH_PLAYLIST_ID = '10eJ5YNR0xdDUUgZkx48MP'
 Data is stored as a tuple, with the first element being the state and the second
 the date the state was created. '''
 STATES = {}
-PRODUCTION = True if 'PRODUCTION' in os.environ and os.environ['PRODUCTION'].lower() == 'true' else False
-PRODUCTION = True
+PRODUCTION = False
 
 if PRODUCTION:
     # Set flask logs to "warning level only in production builds"
@@ -100,7 +99,7 @@ def callback1():
         if STATE.inMatchMode():
             # TODO get an auth token for my account for playlist making
             session["TOKEN2"] = token
-            return redirect(url_for('options'))
+            return redirect(url_for('loadingPlaylists'))
 
         auth_url2 = STATE.getOAuthObjects(2).get_authorize_url()
         return render_template("second.html", auth_url=auth_url2)
